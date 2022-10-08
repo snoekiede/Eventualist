@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventualist.Client", "Event
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventualist.Shared", "Eventualist\Shared\Eventualist.Shared.csproj", "{72B76C25-5926-429E-949C-16F8941D614D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventualist.Data.Internal", "Eventualist.Data.Internal\Eventualist.Data.Internal.csproj", "{CF203822-A0DA-4837-8AA2-8099EB7A3783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventualist.Models", "Eventualist.Models\Eventualist.Models.csproj", "{B1B21B5A-05AE-43BC-B52E-2273BA0D0AC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{72B76C25-5926-429E-949C-16F8941D614D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B76C25-5926-429E-949C-16F8941D614D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B76C25-5926-429E-949C-16F8941D614D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF203822-A0DA-4837-8AA2-8099EB7A3783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF203822-A0DA-4837-8AA2-8099EB7A3783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF203822-A0DA-4837-8AA2-8099EB7A3783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF203822-A0DA-4837-8AA2-8099EB7A3783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B21B5A-05AE-43BC-B52E-2273BA0D0AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B21B5A-05AE-43BC-B52E-2273BA0D0AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B21B5A-05AE-43BC-B52E-2273BA0D0AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B21B5A-05AE-43BC-B52E-2273BA0D0AC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
