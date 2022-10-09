@@ -1,3 +1,5 @@
+using Eventualist.Data.Internal;
+using Eventualist.Data.Internal.Contexts;
 using Eventualist.Data.Internal.Models;
 using Eventualist.Server.Data;
 using Microsoft.AspNetCore.Authentication;
@@ -24,6 +26,8 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddDataAccess(builder.Configuration);
+
 var app = builder.Build();
 
 var scope = app.Services.CreateScope();
@@ -33,6 +37,13 @@ try
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
     if (context.Database.IsSqlServer())
+    {
+        await context.Database.MigrateAsync();
+    }
+
+    var eventsContext = scope.ServiceProvider.GetRequiredService<EventualistContext>();
+
+    if (eventsContext.Database.IsSqlServer())
     {
         await context.Database.MigrateAsync();
     }
