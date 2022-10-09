@@ -1,7 +1,7 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using Eventualist.Server.Models
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+﻿@using Eventualist.Data.Internal.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<EventualistUser> SignInManager
+@inject UserManager<EventualistUser> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{

@@ -1,12 +1,12 @@
 ﻿using Duende.IdentityServer.EntityFramework.Options;
-using Eventualist.Server.Models;
+using Eventualist.Data.Internal.Models;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace Eventualist.Server.Data
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class ApplicationDbContext : ApiAuthorizationDbContext<EventualistUser>
     {
         public ApplicationDbContext(
             DbContextOptions options,
