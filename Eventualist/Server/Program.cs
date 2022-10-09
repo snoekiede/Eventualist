@@ -1,5 +1,7 @@
+using Eventualist.Data.Internal;
+using Eventualist.Data.Internal.Contexts;
+using Eventualist.Data.Internal.Models;
 using Eventualist.Server.Data;
-using Eventualist.Server.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +14,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<EventualistUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<EventualistUser, ApplicationDbContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
@@ -24,7 +26,32 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddDataAccess(builder.Configuration);
+
 var app = builder.Build();
+
+var scope = app.Services.CreateScope();
+
+try
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    if (context.Database.IsSqlServer())
+    {
+        await context.Database.MigrateAsync();
+    }
+
+    var eventsContext = scope.ServiceProvider.GetRequiredService<EventualistContext>();
+
+    if (eventsContext.Database.IsSqlServer())
+    {
+        await context.Database.MigrateAsync();
+    }
+}
+catch
+{
+    throw;
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
