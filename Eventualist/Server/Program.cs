@@ -34,18 +34,18 @@ var scope = app.Services.CreateScope();
 
 try
 {
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    //var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-    if (context.Database.IsSqlServer())
-    {
-        await context.Database.MigrateAsync();
-    }
+    //if (context.Database.IsSqlServer())
+    //{
+    //    await context.Database.MigrateAsync();
+    //}
 
     var eventsContext = scope.ServiceProvider.GetRequiredService<EventualistContext>();
 
     if (eventsContext.Database.IsSqlServer())
     {
-        await context.Database.MigrateAsync();
+        await eventsContext.Database.MigrateAsync();
     }
 }
 catch

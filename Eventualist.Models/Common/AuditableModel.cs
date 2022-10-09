@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eventualist.Models.Common
 {
-    public class AuditableModel
+    public class AuditableModel:Model
     {
         public string? CreatedBy { get; set; } = null;
         public DateTime Created { get; } = DateTime.Now;

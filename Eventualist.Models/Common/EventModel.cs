@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eventualist.Models.Common
 {
-    internal class EventModel:AuditableModel
+    public class EventModel:AuditableModel
     {
         public Guid ObjectId { get; init; }
 
