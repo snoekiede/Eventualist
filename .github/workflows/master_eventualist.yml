@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'eventualist'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9777BC228F5741B087CDF9AA99E6ECF6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F2DE89D8CA82411AB4836FA7E2EAAF2E }}
           package: .
